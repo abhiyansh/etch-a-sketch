@@ -22,21 +22,15 @@ function onDrag(event){
     else event.target.style['background-color']='white';
 }
 
-function onReset(event){
+function onReset(){
     gridCells = document.querySelectorAll('.grid-cell');
     gridCells.forEach(element => element.style['background-color']='white');
 }
 
-function onDrawMode(event){
-    penMode = 'draw';
-    event.target.classList.add('active');
-    document.querySelector('.erase-mode').classList.remove('active');
-}
-
-function onEraseMode(event){
-    penMode = 'erase';
-    event.target.classList.add('active');
-    document.querySelector('.draw-mode').classList.remove('active');
+function onDrawModeToggle(){
+    penMode = (penMode=='erase')?'draw':'erase';
+    document.querySelector('.erase-mode').classList.toggle('active');
+    document.querySelector('.draw-mode').classList.toggle('active');
 }
 
 function onShowGridToggle(event){
@@ -62,10 +56,10 @@ resetButton = document.querySelector('button.reset');
 resetButton.addEventListener('click', onReset);
 
 drawButton = document.querySelector('.draw-mode');
-drawButton.addEventListener('click', onDrawMode);
+drawButton.addEventListener('click', onDrawModeToggle);
 
 eraseButton = document.querySelector('.erase-mode');
-eraseButton.addEventListener('click', onEraseMode);
+eraseButton.addEventListener('click', onDrawModeToggle);
 
 colorInput = document.querySelector("input[type='color']");
 colorInput.addEventListener("input",(event)=>penColor = colorInput.value);
