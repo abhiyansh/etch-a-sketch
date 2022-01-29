@@ -1,21 +1,35 @@
 body {
     min-height: 100vh;
     margin: 0;
+    text-align: center;
     display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.main-container{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap-reverse;
+}
+
+.tool-bar{
+    height: inherit;
+    width: 150px;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
 }
 
 .grid-container{
+    width: 512px;
+    height: 512px;
     border: black solid 2px;
     display: flex;
     flex-wrap: wrap;
+    background-color: white;
 }
 
-/* .grid-cell{
+.grid-cell.outline-cells{
     outline: black solid 1px;
-} */
-
-.grid-cell.visited{
-    background-color: black;
 }
