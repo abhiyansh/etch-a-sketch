@@ -20,7 +20,10 @@ function createGrid(grid_container, n){
 }
 
 function onDrag(event){
-    event.target.style['background-color']=penColor;
+    if(penMode=='draw')
+        event.target.style['background-color']=penColor;
+    else
+        event.target.style['background-color']='white';
 }
 
 function onReset(event){
@@ -28,9 +31,22 @@ function onReset(event){
     gridCells.forEach(element => element.style['background-color']='white');
 }
 
+function onDrawMode(event){
+    penMode = 'draw';
+    event.target.classList.add('active');
+    document.querySelector('.erase-mode').classList.remove('active');
+}
+
+function onEraseMode(event){
+    penMode = 'erase';
+    event.target.classList.add('active');
+    document.querySelector('.draw-mode').classList.remove('active');
+}
+
 
 const n=32;
 let penColor = 'black';
+let penMode = 'draw';
 
 const grid_container = document.querySelector('.grid-container');
 
@@ -41,3 +57,9 @@ createGrid(grid_container, n);
 
 resetButton = document.querySelector('button.reset');
 resetButton.addEventListener('click', onReset);
+
+drawButton = document.querySelector('.draw-mode');
+drawButton.addEventListener('click', onDrawMode);
+
+eraseButton = document.querySelector('.erase-mode');
+eraseButton.addEventListener('click', onEraseMode);
