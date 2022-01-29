@@ -1,5 +1,3 @@
-let mouseDown = false;
-
 function createGridCell(cell_width){
     const grid_cell = document.createElement('div');
     
@@ -20,10 +18,8 @@ function createGrid(grid_container, n){
 }
 
 function onDrag(event){
-    if(penMode=='draw')
-        event.target.style['background-color']=penColor;
-    else
-        event.target.style['background-color']='white';
+    if(penMode=='draw') event.target.style['background-color']=penColor;
+    else event.target.style['background-color']='white';
 }
 
 function onReset(event){
@@ -47,6 +43,7 @@ function onEraseMode(event){
 const n=32;
 let penColor = 'black';
 let penMode = 'draw';
+let mouseDown = false;
 
 const grid_container = document.querySelector('.grid-container');
 
@@ -63,3 +60,6 @@ drawButton.addEventListener('click', onDrawMode);
 
 eraseButton = document.querySelector('.erase-mode');
 eraseButton.addEventListener('click', onEraseMode);
+
+colorInput = document.querySelector("input[type='color']");
+colorInput.addEventListener("input",(event)=>penColor = colorInput.value);
