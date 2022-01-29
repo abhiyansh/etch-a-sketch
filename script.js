@@ -39,6 +39,12 @@ function onEraseMode(event){
     document.querySelector('.draw-mode').classList.remove('active');
 }
 
+function onShowGridToggle(event){
+    gridCells = document.querySelectorAll('.grid-cell');
+    event.target.classList.toggle('active');
+    gridCells.forEach(element => element.classList.toggle('outline-cell'));
+}
+
 
 const n=32;
 let penColor = 'black';
@@ -63,3 +69,6 @@ eraseButton.addEventListener('click', onEraseMode);
 
 colorInput = document.querySelector("input[type='color']");
 colorInput.addEventListener("input",(event)=>penColor = colorInput.value);
+
+showGridButton = document.querySelector('.show-grid-button');
+showGridButton.addEventListener('click', onShowGridToggle);

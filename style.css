@@ -1,6 +1,7 @@
-*{
+/* *{
     outline: red solid 2px;
-}
+} */
+
 body {
     min-height: 100vh;
     margin: 0;
@@ -19,6 +20,8 @@ body {
 .tool-bar{
     height: inherit;
     width: 150px;
+    border: black solid 2px;
+    padding: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -34,8 +37,8 @@ body {
     background-color: white;
 }
 
-.grid-cell.outline-cells{
-    outline: black solid 1px;
+.grid-cell.outline-cell{
+    outline: rgb(168, 168, 168) solid 1px;
 }
 
 button.active{
